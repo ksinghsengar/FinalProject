@@ -3,6 +3,7 @@ package com.dao;
 import com.model.User;
 //import com.util.UserUtil;
 import com.util.UserUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,19 +49,30 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-/*    public boolean deleteUser(User user) {
+    public boolean deleteUser(User user) {
         try {
-            SessionFactory session = UserUtil.getSessionFactory();
-            session.getCurrentSession().delete(user);
-        } catch (Exception ex) {
+            sessionFactory = UserUtil.getSessionFactory();
+            Session session =  sessionFactory.openSession();
+            session.beginTransaction();
+            session.delete(user);
+            return true;
+        }
+        catch (Exception ex) {
             return false;
         }
 
-        return true;
-    }*/
+    }
 
-    /*@Override
-    public boolean checkPassword(User user) {
-
-    }*/
+    @Override
+    public boolean validateUser(String loginUser,String loginPassword) {
+        sessionFactory = UserUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String hql = "from User where (userName = ?  or email = ?) and password = ? ";
+        Query query = session.createQuery(hql)
+                .setString(0, loginUser)
+                .setString(1, loginUser)
+                .setString(2, loginPassword);
+        return query.list().isEmpty();
+    }
 }

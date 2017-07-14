@@ -9,6 +9,6 @@ public interface UserService {
 
     public boolean saveOrUpdateUser(User user);
    public List<User> getUser();
-//    public boolean deleteUser(User users);*/
-//   public  boolean checkPassword(User user);
+   public boolean deleteUser(User users);
+   public  boolean validateUser(String loginUser,String loginPassword);
 }

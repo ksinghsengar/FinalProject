@@ -133,16 +133,17 @@
 
 
             <div class="panel-body">
+                <form:form modelAttribute="User" method="post" action="/login">
                 <div class="form-group">
                     <label  class="contol-label col-md-5">Email/Username*</label>
                     <div class="input-group col-md-6">
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control"   name="loginUser" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="contol-label col-md-5">Password*</label>
                     <div class="input-group col-md-6">
-                        <input type="password" class="form-control" required>
+                        <input type="password" class="form-control"  name="loginPassword" required>
                     </div>
                 </div>
 
@@ -153,6 +154,7 @@
                         <button type="submit"> Login</button>
                     </div>
                 </div>
+                </form:form>
             </div>
 
         </div>

@@ -21,11 +21,11 @@ public class User {
     private String firstName;
     private String lastName;
     @Lob
-    @Column(columnDefinition="mediumblob")
+    @Column(columnDefinition = "mediumblob")
     private Byte[] photo;
     @Column(nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private  Boolean admin;
+    private Boolean admin;
     @Column(nullable = false)
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean active;
@@ -121,5 +121,20 @@ public class User {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + getId()
+                +" Email: " + getEmail()
+                +" Username: " + getUserName()
+                +" Password: " + getPassword()
+                +" FirstName: " + getFirstName()
+                +" LastName: " + getLastName()
+                +" Admin: " + getAdmin()
+                +" Active: " + getActive()
+                +" DateCreated: " + getDateCreated()
+                +" LastUpdated: " + getLastUpdated();
+
     }
 }

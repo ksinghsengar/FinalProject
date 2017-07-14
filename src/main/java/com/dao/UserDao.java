@@ -13,6 +13,6 @@ public interface UserDao {
 
     public boolean saveOrUpdateUser(User user);
    public List<User> getUser();
-//    public boolean deleteUser(User user);*/
-//   public  boolean checkPassword(User user);
+    public boolean deleteUser(User user);
+   public  boolean validateUser(String loginUser, String loginPassword);
 }

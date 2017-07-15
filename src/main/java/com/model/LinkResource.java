@@ -7,20 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class LinkResource extends Resource {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+
     private String url;
-
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getUrl() {
         return url;
@@ -33,7 +21,6 @@ public class LinkResource extends Resource {
     @Override
     public String toString() {
         return "LinkResource{" +
-                "id=" + id +
                 ", url='" + url + '\'' +
                 '}';
     }

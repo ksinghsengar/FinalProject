@@ -13,6 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "UserId")
     int id;
     @Column(unique = true)
     private String email;
@@ -25,10 +26,10 @@ public class User {
     @Column(columnDefinition = "mediumblob")
     private Byte[] photo;
     @Column(nullable = false)
-    @Type(type = "NumericBooleanType")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean admin;
     @Column(nullable = false)
-    @Type(type = "NumericBooleanType")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean active;
     private Date dateCreated;
     private Date lastUpdated;

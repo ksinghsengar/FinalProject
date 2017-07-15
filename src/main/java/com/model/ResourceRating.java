@@ -8,6 +8,7 @@ import java.util.List;
 public class ResourceRating {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ResourceRatingId")
     private Integer id;
     @ManyToOne
     private Resource resource;

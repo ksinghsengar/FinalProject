@@ -3,11 +3,13 @@ package com.model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ResourceId")
      private Integer id;
      private String description;
      @ManyToOne

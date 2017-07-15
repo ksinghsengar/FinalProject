@@ -10,20 +10,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class DocumentResource extends Resource {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-     private Integer id;
+
      private String filePath;
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFilePath() {
         return filePath;
@@ -36,7 +25,6 @@ public class DocumentResource extends Resource {
     @Override
     public String toString() {
         return "DocumentResource{" +
-                "id=" + id +
                 ", filePath='" + filePath + '\'' +
                 '}';
     }

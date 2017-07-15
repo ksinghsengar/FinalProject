@@ -7,6 +7,7 @@ import java.util.Date;
 public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "SubscriptionId")
     private Integer id;
     @ManyToOne
     private  Topic topic;

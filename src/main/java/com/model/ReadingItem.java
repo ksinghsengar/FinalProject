@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ReadingItem {
+public class ReadingItem{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ReadingItemId")
     private Integer id;
     @ManyToOne
     private Resource resource;
     @ManyToMany
     List<User> userList = new ArrayList<>();
-    @Type(type = "NumericBooleanType")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private  Boolean isRead;
 
     public Integer getId() {

@@ -11,6 +11,7 @@ import java.util.List;
 public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "TopicId")
     private int id;
     private String name;
     private Date datecreated;

@@ -10,5 +10,5 @@ public class ResourceRating {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
 }

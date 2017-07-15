@@ -4,6 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -24,16 +25,16 @@ public class User {
     @Column(columnDefinition = "mediumblob")
     private Byte[] photo;
     @Column(nullable = false)
-    @Type(type = "org.hibernate.type.NumericBooleanType")
+    @Type(type = "NumericBooleanType")
     private Boolean admin;
     @Column(nullable = false)
-    @Type(type = "org.hibernate.type.NumericBooleanType")
+    @Type(type = "NumericBooleanType")
     private Boolean active;
     private Date dateCreated;
     private Date lastUpdated;
 
-//    @OneToMany(mappedBy = "user",cascade = CascadeType.PERSIST)
-//    List<Topic> topicList = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    List<Topic> topicList = new ArrayList<Topic>();
 
     public int getId() {
         return id;
@@ -123,18 +124,29 @@ public class User {
         this.lastUpdated = lastUpdated;
     }
 
+    public List<Topic> getTopicList() {
+        return topicList;
+    }
+
+    public void setTopicList(List<Topic> topicList) {
+        this.topicList = topicList;
+    }
+
     @Override
     public String toString() {
-        return "Id: " + getId()
-                +" Email: " + getEmail()
-                +" Username: " + getUserName()
-                +" Password: " + getPassword()
-                +" FirstName: " + getFirstName()
-                +" LastName: " + getLastName()
-                +" Admin: " + getAdmin()
-                +" Active: " + getActive()
-                +" DateCreated: " + getDateCreated()
-                +" LastUpdated: " + getLastUpdated();
-
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", photo=" + Arrays.toString(photo) +
+                ", admin=" + admin +
+                ", active=" + active +
+                ", dateCreated=" + dateCreated +
+                ", lastUpdated=" + lastUpdated +
+                ", topicList=" + topicList +
+                '}';
     }
 }

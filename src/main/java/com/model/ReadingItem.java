@@ -11,7 +11,7 @@ public class ReadingItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @OneToOne
+    @ManyToOne
     private Resource resource;
     @ManyToMany
     List<User> userList = new ArrayList<>();
